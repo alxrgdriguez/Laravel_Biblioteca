@@ -10,7 +10,8 @@ class AuthorController
 {
     public function api_index()
     {
-        return AuthorResource::collection(Author::paginate(6));
+        $authors = Author::all();
+        return (\view('AuthorView', ['authors' => $authors]));
     }
 
 }

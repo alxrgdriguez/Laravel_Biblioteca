@@ -12,7 +12,8 @@ class BookController
 {
     public function api_index()
     {
-        return BookResource::collection(Book::paginate(6));
+        $books = Book::all();
+        return (\view('BookView', ['books' => $books]));
     }
 
     public function api_show(string $isbn)
