@@ -1,7 +1,7 @@
 <x-layouts.layout-index title="Biblioteca | Autores">
     <main class="flex-grow container mx-auto px-4 py-8">
         <form action="#" method="GET" class="flex items-center rounded-lg shadow-sm px-3 py-2 mt-8 mb-8 w-full">
-            <input type="text" name="search" placeholder="Buscar..." class="px-3 py-2 outline-none w-64 text-gray-700">
+            <input type="text" name="search" placeholder="Buscar por nombre..." class="px-3 py-2 outline-none w-64 text-gray-700">
             <button type="submit" class="ml-2 text-primary hover:text-blue-600">
                 <i class="fas fa-search"></i>
             </button>
@@ -32,9 +32,9 @@
                             <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-medium py-1 px-3 rounded">
                                 <i class="fas fa-eye"></i> Ver Detalles
                             </button>
-                            <button class="bg-red-500 hover:bg-red-700 text-white text-sm font-medium py-1 px-3 rounded">
+                            <a href="{{ route('authors.destroy', $author->id) }}" class="bg-red-500 hover:bg-red-700 text-white text-sm font-medium py-1 px-3 rounded">
                                 <i class="fas fa-trash"></i> Eliminar
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

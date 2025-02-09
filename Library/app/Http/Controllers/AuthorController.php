@@ -14,4 +14,10 @@ class AuthorController
         return (\view('AuthorView', ['authors' => $authors]));
     }
 
+    public function destroy(Author $author)
+    {
+        $author->delete();
+        return redirect()->route('authors.index')->with('success', 'Autor eliminado correctamente.');
+    }
+
 }

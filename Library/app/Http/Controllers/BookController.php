@@ -39,4 +39,10 @@ class BookController
         $book->save();
         return response()->json(['message' => 'Libro creado correctamente'], 201);
     }
+
+    public function destroy(Book $book)
+    {
+        $book->delete();
+        return redirect()->route('books.index')->with('success', 'Libro eliminado correctamente.');
+    }
 }
