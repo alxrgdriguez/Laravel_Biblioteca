@@ -6,6 +6,10 @@
                 <i class="fas fa-search"></i>
             </button>
         </form>
+
+        <div class="mb-6 flex justify-end">
+            <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600">Añadir Autor</button>
+        </div>
     <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-300 hover:shadow-2xl p-5">
         <h2 class="text-2xl font-bold text-primary mb-4 text-center">Lista de Autores</h2>
         <div class="overflow-x-auto">
@@ -19,17 +23,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($authors as $index => $author)
+                @foreach($authors as $author)
                     <tr class="border-b hover:bg-gray-50">
-                        <td class="py-3 px-6">{{ $index + 1 }}</td>
+                        <td class="py-3 px-6">{{ $author->id }}</td>
                         <td class="py-3 px-6">{{ $author->name }}</td>
-                        <td class="py-3 px-6">{{ $author->books_count }}</td>
+                        <td class="py-3 px-6">{{ $author->books->count() }}</td>
                         <td class="py-3 px-6 flex justify-center gap-2">
-                            <button class="bg-green-500 hover:bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded">
-                                <i class="fas fa-eye"></i> Editar
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-medium py-1 px-3 rounded">
+                                <i class="fas fa-eye"></i> Ver Detalles
                             </button>
-                            <button class="bg-red-500 hover:bg-green-600 text-white text-sm font-medium py-1 px-3 rounded">
-                                <i class="fas fa-edit"></i> Eliminar
+                            <button class="bg-red-500 hover:bg-red-700 text-white text-sm font-medium py-1 px-3 rounded">
+                                <i class="fas fa-trash"></i> Eliminar
                             </button>
                         </td>
                     </tr>
@@ -37,5 +41,10 @@
                 </tbody>
             </table>
         </div>
+        <div class="mt-6">
+            <!-- Enlaces de paginación -->
+            {{ $authors->onEachSide(1)->links() }}
+        </div>
     </div>
+        </main>
 </x-layouts.layout-index>

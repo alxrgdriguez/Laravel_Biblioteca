@@ -12,7 +12,7 @@ class BookController
 {
     public function api_index()
     {
-        $books = Book::all();
+        $books = Book::simplePaginate(8);
         return (\view('BookView', ['books' => $books]));
     }
 

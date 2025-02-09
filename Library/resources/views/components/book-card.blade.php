@@ -21,14 +21,14 @@
         <div class="flex justify-between items-center mb-4">
             <span class="text-sm font-semibold px-3 py-1 rounded-full {{ $statusColor }}">{{$status}}</span>        </div>
         <div class="flex justify-between gap-2">
-            <button class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded flex items-center">
-                <i class="fas fa-edit mr-1"></i> Editar
+            <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-medium py-1 px-3 rounded">
+                <i class="fas fa-edit"></i> Editar
             </button>
-            <button class="bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 px-4 rounded flex items-center">
-                <i class="fas fa-trash-alt mr-1"></i> Eliminar
+            <button class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium py-2 px-4 rounded flex items-center gap-1">
+                <i class="fas fa-eye"></i> Ver Libro
             </button>
-            <button class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium py-2 px-4 rounded flex items-center">
-                <i class="fas fa-sync-alt mr-1"></i> Prestar
+            <button class="bg-red-500 hover:bg-red-700 text-white text-sm font-medium py-1 px-3 rounded">
+                <i class="fas fa-trash"></i> Eliminar
             </button>
         </div>
     </div>

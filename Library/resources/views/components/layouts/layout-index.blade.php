@@ -10,6 +10,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
+<style>
+
+</style>
+
 <body class="flex flex-col min-h-screen bg-gray-100">
 <!-- Encabezado -->
 <header class="bg-blue-800 text-white shadow-lg">
@@ -37,6 +41,7 @@
 
 
 <!-- Contenido principal -->
+<main class="flex-grow container mx-auto px-4 py-8">
     {{$slot}}
 </main>
 

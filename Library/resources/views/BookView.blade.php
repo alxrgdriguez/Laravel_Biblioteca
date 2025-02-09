@@ -7,6 +7,7 @@
                 <i class="fas fa-search"></i>
             </button>
         </form>
+
     <div class="mb-6 flex justify-end">
         <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600">Añadir Libro</button>
     </div>
@@ -23,4 +24,10 @@
         @endforeach
     </div>
 
+    <div class="mt-6">
+        <!-- Enlaces de paginación -->
+        {{ $books->onEachSide(1)->links() }}
+    </div>
+
+    </main>
 </x-layouts.layout-index>
