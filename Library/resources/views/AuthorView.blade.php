@@ -18,7 +18,9 @@
                 <tr class="bg-gray-100 border-b">
                     <th class="py-3 px-6 text-left text-gray-700 font-bold">#</th>
                     <th class="py-3 px-6 text-left text-gray-700 font-bold">Nombre</th>
-                    <th class="py-3 px-6 text-left text-gray-700 font-bold">Libros Publicados</th>
+                    <th class="py-3 px-6 text-left text-gray-700 font-bold">Nacionalidad</th>
+                    <th class="py-3 px-6 text-left text-gray-700 font-bold">F.Nacimiento</th>
+                    <th class="py-3 px-6 text-left text-gray-700 font-bold">Libros</th>
                     <th class="py-3 px-6 text-left text-gray-700 font-bold text-center">Acciones</th>
                 </tr>
                 </thead>
@@ -27,11 +29,10 @@
                     <tr class="border-b hover:bg-gray-50">
                         <td class="py-3 px-6">{{ $author->id }}</td>
                         <td class="py-3 px-6">{{ $author->name }}</td>
+                        <td class="py-3 px-6">{{ $author->nationality }}</td>
+                        <td class="py-3 px-6">{{ $author->date_of_birth }}</td>
                         <td class="py-3 px-6">{{ $author->books->count() }}</td>
                         <td class="py-3 px-6 flex justify-center gap-2">
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-medium py-1 px-3 rounded">
-                                <i class="fas fa-eye"></i> Ver Detalles
-                            </button>
                             <a href="{{ route('authors.destroy', $author->id) }}" class="bg-red-500 hover:bg-red-700 text-white text-sm font-medium py-1 px-3 rounded">
                                 <i class="fas fa-trash"></i> Eliminar
                             </a>

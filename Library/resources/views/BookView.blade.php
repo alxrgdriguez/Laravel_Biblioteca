@@ -9,19 +9,15 @@
         </form>
 
     <div class="mb-6 flex justify-end">
-        <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600">Añadir Libro</button>
+        <a href="{{ route('books.new') }}" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600">Añadir Libro</a>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
         @foreach($books as $book)
-            <x-book-card :title="$book->title"
-                         :isbn="$book->isbn"
-                         :cover="$book->cover"
-                         :year_publication="$book->year_publication"
-                         :status="$book->status"
-                         :author="$book->author->name"
-                         :ubication="$book->ubication->num_shelves" />
+            <x-book-card
+                     :book="$book"
+                      />
         @endforeach
 
     </div>
