@@ -8,7 +8,7 @@
         </form>
 
         <div class="mb-6 flex justify-end">
-            <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600">Añadir Autor</button>
+            <a href="{{ route('authors.new') }}" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600">Añadir Autor</a>
         </div>
     <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-300 hover:shadow-2xl p-5">
         <h2 class="text-2xl font-bold text-primary mb-4 text-center">Lista de Autores</h2>

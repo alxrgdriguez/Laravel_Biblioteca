@@ -11,9 +11,6 @@ class Author extends Model
 {
     // \database\factories\AuthorFactory
     use HasFactory;
-
-    //La propiedad $fillable es un array que especifica
-    // qué columnas de la base de datos pueden ser asignadas masivamente
     protected $fillable = [
         'name',
         'nationality',

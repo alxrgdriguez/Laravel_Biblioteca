@@ -52,7 +52,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2" for="cover">Portada</label>
-                    <input class="w-full px-3 py-2 border rounded-md" id="cover" name="cover" type="file">
+                    <input class="w-full px-3 py-2 border rounded-md" id="cover" name="cover" type="file" required>
                 </div>
                 <div class="flex justify-end mt-6 gap-2">
                     <button class="px-6 py-2 bg-blue-500 text-white rounded-md" type="submit">Agregar Libro</button>
