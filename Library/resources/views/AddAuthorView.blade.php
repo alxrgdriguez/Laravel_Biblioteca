@@ -23,7 +23,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2" for="dewey_code">Código Autor</label>
-                    <input class="w-full px-3 py-2 border rounded-md" id="dewey_code" min="100" max="999"  name="dewey_code" type="number" required>
+                    <input class="w-full px-3 py-2 border rounded-md" id="dewey_code" min="100" max="999" name="dewey_code" type="number" required>
                     @error('dewey_code')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror

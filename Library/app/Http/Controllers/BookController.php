@@ -7,6 +7,8 @@ use App\Http\Resources\BookIsbnResource;
 use App\Http\Resources\BookResource;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class BookController
 {
@@ -44,7 +46,7 @@ class BookController
     // RESPONSES WEB
 
     public function index(){
-        $books = Book::simplePaginate(8);
+        $books = Book::paginate(8);
         return (\view('BookView', ['books' => $books]));
     }
 
@@ -99,13 +101,48 @@ class BookController
     public function search(Request $request)
     {
 
-      $status = is_null($request->status) ? '%%' : $request->status;
+        $status = is_null($request->status) ? '%%' : $request->status;
+        $books = Book::with('author')->where('title', 'like', "%".$request->title. "%")
+        ->where('isbn', 'like', "%".$request->isbn. "%")
+        ->where('status', 'like', $status)->paginate(8);
 
-       $books = Book::where('title', 'like', "%".$request->title. "%")
-           /* ->where('isbn', 'like', "%".$request->isbn."%")
-            ->where('status', 'like', $status);*/
-
-        return response()->json(['books' => $books]);
+        return view('BookView', ['books' => $books, 'status' => $request->status, 'title' => $request->title, 'isbn' => $request->isbn]);
 
     }
+
+    public function edit(Book $book)
+    {
+        return view('EditBookView', ['book' => $book]);
+    }
+
+    public function update(Request $request)
+    {
+        // Buscar el libro por ID
+        $book = Book::findOrFail($request->id);
+
+        // Actualizar los campos del libro
+        $book->update([
+            'title' => $request->title,
+            'isbn' => $request->isbn,
+            'year_publication' => $request->year_publication,
+            'status' => $request->status,
+            'author_id' => $request->author_id,
+            'ubication_id' => $request->ubication_id,
+        ]);
+
+        // Si el usuario subió una nueva portada, actualizarla
+        if ($request->hasFile('cover')) {
+            // Eliminar la portada anterior si existe
+            if ($book->cover) {
+                Storage::delete($book->cover);
+            }
+
+            // Guardar la nueva portada y actualizar el registro
+            $path = $request->file('cover')->store('covers', 'public');
+            $book->update(['cover' => $path]);
+        }
+
+        return redirect()->route('books.index')->with('success', 'Libro actualizado correctamente.');
+    }
+
 }

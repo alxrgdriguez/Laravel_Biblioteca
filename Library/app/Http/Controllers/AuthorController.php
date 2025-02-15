@@ -20,13 +20,13 @@ class AuthorController
 
     public function index(){
 
-        $authors = Author::simplePaginate(12);
-        return (\view('AuthorView', ['authors' => $authors]));
+        $authors = Author::paginate(12);
+        return (view('AuthorView', ['authors' => $authors]));
 
     }
 
     public function create(){
-        return \view('AddAuthorView');
+        return view('AddAuthorView');
     }
 
     public function store(Request $request)
@@ -54,6 +54,46 @@ class AuthorController
         $author->save();
         return redirect()->route('authors.index')->with('success', 'Autor creado correctamente.');
     }
+
+    public function search(Request $request){
+
+        $authors = Author::where('name', 'like', "%".$request->name. "%")
+        ->where('nationality', 'like', "%".$request->nationality. "%")
+        ->paginate(12);
+        return view('AuthorView', ['authors' => $authors, 'name' => $request->name, 'nationality' => $request->nationality]);
+    }
+
+    public function edit(Author $author)
+    {
+        return view('EditAuthorView', ['author' => $author]);
+    }
+
+    public function update(Request $request)
+    {
+        // Validar los datos antes de actualizar
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'nationality' => 'required|string|max:255',
+            'date_of_birth' => 'required|date|before_or_equal:today',
+            'dewey_code' => 'required|integer|min:100|max:999|unique:authors,dewey_code,' . $request->id,
+            'biography' => 'required|string',
+        ]);
+
+        // Buscar el autor por ID
+        $author = Author::findOrFail($request->id);
+
+        // Actualizar los campos del autor
+        $author->update([
+            'name' => $request->name,
+            'nationality' => $request->nationality,
+            'date_of_birth' => $request->date_of_birth,
+            'dewey_code' => $request->dewey_code,
+            'biography' => $request->biography,
+        ]);
+
+        return redirect()->route('authors.index')->with('success', 'Autor actualizado correctamente.');
+    }
+
 
     public function destroy(Author $author)
     {

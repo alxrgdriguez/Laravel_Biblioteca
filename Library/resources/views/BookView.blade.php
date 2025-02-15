@@ -1,3 +1,4 @@
+@props(['title'=> null, 'isbn' => null, 'status' => null])
 <x-layouts.layout-index title="Biblioteca | Libros">
 
     <main class="flex-grow container mx-auto px-4 py-8">
@@ -45,9 +46,29 @@
 
     </div>
 
-    <div class="mt-6">
+    <div class="mt-6 flex justify-between">
         <!-- Enlaces de paginación -->
-        {{ $books->onEachSide(1)->links() }}
+        <a
+            class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600 {{$books->previousPageUrl() ? "": "pointer-events-none bg-gray-500"}}"
+            @if(is_null($title) &&  is_null($isbn) && is_null($status))
+            href="{{ $books->previousPageUrl() }}"
+            @else
+                href="{{$books->previousPageUrl()}}?title={{$title}}&isbn={{$isbn}}&status={{$status}}"
+            @endif
+        >
+            Anterior
+        </a>
+
+        <a
+            class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600 {{$books->nextPageUrl() ? "": "pointer-events-none bg-gray-500"}}"
+            @if(is_null($title) && is_null($isbn) && is_null($status))
+            href="{{ $books->nextPageUrl() }}"
+            @else
+                href="{{$books->nextPageUrl()}}?title={{$title}}&isbn={{$isbn}}&status={{$status}}"
+            @endif
+        >
+            Siguiente
+        </a>
     </div>
 
     </main>

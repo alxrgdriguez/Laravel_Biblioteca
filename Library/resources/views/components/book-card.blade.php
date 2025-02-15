@@ -25,9 +25,9 @@
             <button class="bg-green-500 hover:bg-green800 text-white text-sm font-medium py-1 px-3 rounded">
                 <i class="fas fa-edit"></i> Detalles
             </button>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-medium py-1 px-3 rounded">
+            <a href="{{route('books.edit', $book->id)}}" class="bg-blue-500 hover:bg-blue-800 text-white text-sm font-medium py-1 px-3 rounded">
                 <i class="fas fa-edit"></i> Editar
-            </button>
+            </a>
             <a href="{{ route('books.destroy', $book->id) }}" class="bg-red-500 hover:bg-red-700 text-white text-sm font-medium py-1 px-3 rounded">
                 <i class="fas fa-edit"></i> Eliminar
             </a>
