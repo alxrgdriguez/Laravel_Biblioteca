@@ -142,7 +142,7 @@ class BookController
             $book->update(['cover' => $path]);
         }
 
-        return back()->with('success', 'Libro actualizado correctamente.');
+        return redirect()->route('books.index')->with('success', 'Libro actualizado correctamente.');
     }
 
 }

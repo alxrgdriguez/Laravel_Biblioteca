@@ -10,8 +10,8 @@
     $statusColor = $statusColors[$book->status] ?? 'text-gray-600 bg-gray-100';
 @endphp
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-300 hover:shadow-2xl">
-    <img src="{{ asset('storage/' . $book->cover) }}" alt="Portada del libro" class="w-full h-56 object-cover">
+<div class="bg-white rounded-lg shadow-md border border-gray-300 hover:shadow-2xl">
+    <img src="{{ asset('storage/' . $book->cover) }}" alt="Portada del libro" class="w-full h-auto max-h-96 object-cover rounded-t-lg">
     <div class="p-5">
         <h2 class="font-bold text-xl mb-2 text-primary truncate">{{$book->title}}</h2>
         <p class="text-gray-700 text-base mb-2">Autor: <span class="font-semibold">{{$book->author->name}}</span></p>
