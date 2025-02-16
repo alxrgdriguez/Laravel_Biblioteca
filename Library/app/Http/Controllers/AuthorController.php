@@ -98,7 +98,7 @@ class AuthorController
     public function destroy(Author $author)
     {
         $author->delete();
-        return redirect()->route('authors.index')->with('success', 'Autor eliminado correctamente.');
+        return back()->with('success', 'Autor eliminado correctamente.');
     }
 
 

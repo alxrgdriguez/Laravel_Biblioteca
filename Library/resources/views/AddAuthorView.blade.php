@@ -34,7 +34,7 @@
                 </div>
                 <div class="flex justify-end mt-6 gap-2">
                     <button class="px-6 py-2 bg-blue-500 text-white rounded-md" type="submit">Agregar Autor</button>
-                    <a href="/" class="px-6 py-2 bg-gray-500 text-white rounded-md">Cancelar</a>
+                    <a href="{{route('authors.index')}}" class="px-6 py-2 bg-gray-500 text-white rounded-md">Cancelar</a>
                 </div>
             </form>
         </div>

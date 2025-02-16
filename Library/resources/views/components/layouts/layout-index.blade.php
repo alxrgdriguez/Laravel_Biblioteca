@@ -30,8 +30,7 @@
                 <ul class="flex space-x-6 text-lg">
                     <li><a href="{{route('books.index')}}" class="hover:text-blue-200 transition duration-300">Biblioteca</a></li>
                     <li><a href="{{route('authors.index')}}" class="hover:text-blue-200 transition duration-300">Autores</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition duration-300">Ubicaciones</a></li>
-                    <li><a  href="#" class="hover:text-blue-200 transition duration-300">Inventario</a></li>
+                    <li><a href="{{route('ubications.index')}}" class="hover:text-blue-200 transition duration-300">Ubicaciones</a></li>
                 </ul>
             </nav>
 
