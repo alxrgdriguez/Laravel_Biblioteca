@@ -20,7 +20,7 @@ class AuthorFactory extends Factory
             'name' => $this->faker->name(),
             'nationality' => $this->faker->country(),
             'date_of_birth' => $this->faker->date(),
-            'biography' => $this->faker->paragraph(1),
+            'biography' => $this->faker->paragraph(),
             'dewey_code' => $this->faker->unique()->numerify(str_pad('', 3, '#')),
         ];
     }
