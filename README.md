@@ -1,11 +1,27 @@
-# 📚 Tarea Subida a mi VPS
+# 📚 Laravel Biblioteca
 
-## ¡Hola Javi! 👋
+Proyecto de gestión de biblioteca desarrollado con Laravel y Blade. Permite administrar libros mediante un panel privado con funcionalidades de creación, edición, filtrado y visualización.
 
-He subido la tarea a mi propio servidor VPS. Puedes revisarla en el siguiente enlace:
+---
 
-🔗 **[Ver Tarea](https://alxrgdriguez.comparitiko.dev/)**
+## 🚀 Características
 
-Si tienes algún problema para acceder, por favor avíseme.
+- Gestión completa de libros (CRUD)
+- Interfaz con **Blade** (Laravel templating)
+- Filtros dinámicos por nombre, autor, etc.
+- Autenticación integrada para acceso de administrador
+- Base de datos **MariaDB**
+- Configurado con **Docker** para facilitar el desarrollo local
+
+---
+
+## 🧰 Tecnologías usadas
+
+- Laravel 10+
+- Blade
+- Docker & Docker Compose
+- MariaDB
+- Bootstrap (si aplica)
+- PHP 8.1+
 
 ---
