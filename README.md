@@ -7,7 +7,7 @@ Proyecto de gestión de biblioteca desarrollado con Laravel y Blade. Permite adm
 ## 🚀 Características
 
 - Gestión completa de libros (CRUD)
-- Interfaz con **Blade** (Laravel templating)
+- Interfaz con **Blade** 
 - Filtros dinámicos por nombre, autor, etc.
 - Autenticación integrada para acceso de administrador
 - Base de datos **MariaDB**
