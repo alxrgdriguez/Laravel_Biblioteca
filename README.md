@@ -17,11 +17,11 @@ Proyecto de gestión de biblioteca desarrollado con Laravel y Blade. Permite adm
 
 ## 🧰 Tecnologías usadas
 
-- Laravel 10+
+- Laravel 11+
 - Blade
 - Docker & Docker Compose
 - MariaDB
-- Bootstrap (si aplica)
+- Tailwind CSS
 - PHP 8.1+
 
 ---
